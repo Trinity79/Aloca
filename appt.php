@@ -29,7 +29,19 @@
 		</div>
 
 
-	
+	<div class="message" style="opacity: 1;">
+			<div class="circle"></div>
+			<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+				class="icn"
+				alt="">
+			<div class="dp">
+			<img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+					class="dpicn"
+					alt="dp">
+			</div>
+		</div>
 
 	</div>
 
@@ -76,7 +88,7 @@
 			<div class="report-container">
 				<div class="report-header">
 					<h1 class="recent-Articles">Approved List</h1>
-					<button class="view" onclick=" window.open('fapproved.php','_blank')">View All</button>
+					<button class="view" onclick=" window.open('fappt.php','_blank')">View All</button>
 				</div>
 				<table class="styled-table">
 				<thead>
@@ -92,7 +104,9 @@
 				</thead>
 
                 <?php 
-$query = "SELECT * FROM  pending_status where status = 'approved' LIMIT 5" ;
+$username = $_SESSION['username'];
+
+$query = "SELECT * FROM  pending_status where status = 'approved' and username = '$username' LIMIT 5";
 $result = mysqli_query($db,$query);
 while($row = mysqli_fetch_array($result)) { ?>
 

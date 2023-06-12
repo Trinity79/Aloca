@@ -76,7 +76,7 @@
 			<div class="report-container">
 				<div class="report-header">
 					<h1 class="recent-Articles">Approved List</h1>
-					<button class="view" onclick=" window.open('fapproved.php','_blank')">View All</button>
+					
 				</div>
 				<table class="styled-table">
 				<thead>
@@ -92,7 +92,7 @@
 				</thead>
 
                 <?php 
-$query = "SELECT * FROM  pending_status where status = 'approved' LIMIT 5" ;
+$query = "SELECT * FROM  pending_status where status = 'approved'" ;
 $result = mysqli_query($db,$query);
 while($row = mysqli_fetch_array($result)) { ?>
 

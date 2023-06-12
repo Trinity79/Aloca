@@ -66,15 +66,27 @@
                     <h3>Occupancy Chart</h3>
                 </div>
             </a>
+            <a href="appt.php" target="main" onclick="myFunction(5)">
+                <div id="opt4" class="nav-option option">
+                    <h3>Approved List</h3>
+                </div>
+            </a>
+            <a href="pent.php" target="main" onclick="myFunction(6)">
+                <div id="opt4" class="nav-option option">
+                    <h3>Pending list</h3>
+                </div>
+            </a>
             <!-- <a href="delete.php" target="main" onclick="myFunction(5)">
                 <div id="opt5" class="nav-option option">
                     <h3>Delete User</h3>
                 </div>
             </a>-->
-            <a href="book.php" target="main" onclick="myFunction(6)">
-                <div id="opt6" class="nav-option option">
+            
+            <a href="book.php" target="main" onclick="myFunction(7)">
+                <div id="opt7" class="nav-option option">
                     <h3>Book Slot</h3>
                 </div>
+            </a>
                 <?php  if (isset($_SESSION['username'])) : ?>
                     <form id="f1" method="post">
                     <input type="hidden" name="logout" value=1>
@@ -83,8 +95,9 @@
                     <div id="opt7" class="nav-option option">
                     <h3>Logout</h3>
                 </div>
-            </a>  
-            <?php endif ?>
+            </a>
+                <?php endif ?>
+                
             </div>
         </nav>
 </header>

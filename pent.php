@@ -76,7 +76,7 @@
 			<div class="report-container">
 				<div class="report-header">
 					<h1 class="recent-Articles">Approved List</h1>
-					<button class="view" onclick=" window.open('fapproved.php','_blank')">View All</button>
+					<button class="view" onclick=" window.open('fpent.php','_blank')">View All</button>
 				</div>
 				<table class="styled-table">
 				<thead>
@@ -90,27 +90,43 @@
 					<th scope="col">STATUS</th>
 					</tr>
 				</thead>
+					<tr>
 
-                <?php 
-$query = "SELECT * FROM  pending_status where status = 'approved' LIMIT 5" ;
-$result = mysqli_query($db,$query);
-while($row = mysqli_fetch_array($result)) { ?>
+					<?php 
 
-
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $row['id']; ?></th>
-     
-	  <td><?php echo $row['username']; ?></td>
-      <td><?php echo $row['room']; ?></td>
-      <td><?php echo $row['Day']; ?></td>
-      <td><?php echo $row['Slot']; ?></td>
-      <td><?php echo $row['period']; ?></td>
-      <td><?php echo $row['status']; ?></td>
-    </tr>
-  </tbody>
-
-  <?php } ?>
+					$query = "SELECT * FROM  pending_status WHERE status = 'pending' LIMIT 5";
+					$result = mysqli_query($db,$query);
+					while($row = mysqli_fetch_array($result))  { ?>
+					
+					
+					  <tbody>
+						<tr>
+						  <th scope="row"><?php echo $row['id']; ?></th>
+						  
+						  <td><?php echo $row['username']; ?></td>
+						  <td><?php echo $row['room']; ?></td>
+						  <td><?php echo $row['Day']; ?></td>
+						  <td><?php echo $row['Slot']; ?></td>
+						  <td><?php echo $row['period']; ?></td>
+					
+					
+						 <td>
+							<form action="pent.php" method="POST">
+							<?php include('errors.php'); ?>	 
+							<input type="hidden" name="username" value="<?php echo $row['username']; ?>"/>
+							<input type="hidden" name="id" value="<?php echo $row['id']; ?>"/>
+							<input type="hidden" name="room" value="<?php echo $row['room']; ?>"/>
+							<input type="hidden" name="day" value="<?php echo $row['Day']; ?>"/>
+							<input type="hidden" name="slot" value="<?php echo $row['Slot']; ?>"/>
+							<input type="hidden" name="period" value="<?php echo $row['period']; ?>"/>
+							<input class="reject-button" type="submit" name="rejec" value="&Cross;"> 
+					
+							</form>
+					   </td>
+						</tr>
+					   
+					  </tbody>
+					  <?php } ?>
 				</table>
 			</div>
 </body>

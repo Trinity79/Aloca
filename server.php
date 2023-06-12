@@ -178,6 +178,28 @@ if (isset($_POST['book'])) {
 
  
 }
+// delete on reject button pending
+if(isset($_POST['rejec'])){
+
+
+
+  $username = $_POST['username'];
+	$id = $_POST['id'];
+    $room = $_POST['room'];
+    $period = $_POST['period'];
+    $slot = $_POST['slot'];
+    $day = $_POST['day'];
+
+
+	$select = "DELETE  FROM pending_status  WHERE id = '$id' ";
+	$resut = mysqli_query($db,$select);
+
+
+}
+
+
+
+
 //approve or reject
 if(isset($_POST['approve'])){
   $username = $_POST['username'];
@@ -290,7 +312,7 @@ if(isset($_POST['approve'])){
 header("location:admin1.php");
 	
 }
-
+// delete on reject button
 if(isset($_POST['de'])){
 
 	$username = $_POST['username'];
@@ -862,6 +884,7 @@ if (isset($_POST['login_user'])) {
   	  $_SESSION['username'] = $username;
       $_SESSION['role'] = "teacher";
   	  $_SESSION['success'] = "You are now logged in";
+      header('location: appt.php');
       header('location: book.php');
       header('location: main.php');
   	  header('location: teacher.php');
